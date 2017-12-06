@@ -4,8 +4,6 @@ import numpy as np
 
 
 use_gpu = torch.cuda.is_available()
-logging.info("GPU availibility: {}".format(use_gpu))
-
 if use_gpu:
     torch.cuda.manual_seed(1)
 else:

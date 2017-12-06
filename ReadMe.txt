@@ -13,11 +13,11 @@ A] Preprocess
 B] Models:
 
 1. Composable NNs (Main Work):
-   python train_test_cmp_nn_vqa.py
+   python train_cmp_nn_vqa.py
 2. LSTM+IMG Baseline:
-   python train_test_baseline_lstm_img.py
+   python train_baseline_lstm_img.py
 3. LSTM Baseline:
-   python train_test_baseline_lstm.py
+   python train_baseline_lstm.py
 
 
 C] Demo:

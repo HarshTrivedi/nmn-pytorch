@@ -5,7 +5,6 @@ import torch
 import numpy as np
 
 use_gpu = torch.cuda.is_available()
-
 if use_gpu:
     torch.cuda.manual_seed(1)
 else:

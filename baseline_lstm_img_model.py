@@ -2,6 +2,13 @@ import torch
 import torch.nn.functional as F
 import numpy as np
 
+use_gpu = torch.cuda.is_available()
+if use_gpu:
+    torch.cuda.manual_seed(1)
+else:
+    torch.manual_seed(1)    
+    
+
 class LSTMModel(torch.nn.Module):
 
     def __init__(self, question_word_embeddings_np, embedding_dim, hidden_dim, vocab_size, D_ans_choices ):

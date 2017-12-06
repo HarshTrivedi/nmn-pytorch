@@ -28,12 +28,13 @@ def parse_to_layout(parse):
     children = parse[1:]
 
     conjunctions = ["and"]
+    transforming_adjectives = ["in", "on", "above", "below", "besides", "over", "beside", "through", "inside", "out_of", "at", "with", "behind", "on_top_of", "next_to", "outside_of", "into", "between", "around", "toward", "towards", "under", "within", "in_front_of", "near", "nearest", "without", "because_of", "like", "along", "about", "against"]
+
     if head in conjunctions:
         label_head = ('And', 'and')
         labels_below = tuple(parse_to_layout(child) for child in children )
         labels_here = (label_head, labels_below)
-    
-    transforming_adjectives = ["in", "on", "above", "below", "besides", "over", "beside", "through", "inside", "out_of", "at", "with", "behind", "on_top_of", "next_to", "outside_of", "into", "between", "around", "toward", "towards", "under", "within", "in_front_of", "near", "nearest", "without", "because_of", "like", "along", "about", "against"]
+
     elif head in transforming_adjectives:
         label_head = ('Transform', head)
         labels_below = tuple(parse_to_layout(child) for child in children )

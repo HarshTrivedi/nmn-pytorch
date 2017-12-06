@@ -1,7 +1,7 @@
 from cmp_nn_vqa_model import *
 import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
-from data_loader import *
+from lib.data_loader import *
 from torch.autograd import Variable
 import torch.nn.functional as F
 import torch
@@ -36,7 +36,7 @@ saved_mean_stds_file = os.path.join(root_dir,
                     'preprocessed_data/image_features/mean-stds-{}.pickle'.format(train_set) )
 
 annotation_file = os.path.join( root_dir, 
-            'VQA/Annotations/v2_mscoco_%s_annotations.json' )
+            'raw_data/Annotations/v2_mscoco_%s_annotations.json' )
 
 vocab_answer_file = os.path.join( root_dir,
             'preprocessed_data/vqa_answers.txt')
@@ -296,7 +296,7 @@ val_dataloader   = DataLoader(dataset['val'] ,  batch_size=1, shuffle=True, num_
 dataloader = { 'train': train_dataloader, 'val' : val_dataloader }
 logging.info('Dataloader Loaded')
 
-trained_vqa_model = train_model(model, dataloader, dataset, loss_function, optimizer, num_epochs=2)
+trained_vqa_model = train_model(model, dataloader, dataset, loss_function, optimizer, num_epochs=50)
 logging.info('Training Complete')
 
 torch.save(trained_vqa_model, save_model_file)

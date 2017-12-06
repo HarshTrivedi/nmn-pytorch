@@ -3,7 +3,6 @@ import os
 
 root_dir = os.path.join( os.path.dirname(os.path.realpath(__file__)),  '..')
 
-print annotation_file
 
 #Only Training Should be used here!
 image_set = "train2014-sub" 
@@ -26,7 +25,7 @@ for annotation in annotations:
             all_valid_answers.add( answer )
 
 
-with open( os.path.join( root_dir, 'preprocessed_data/vqa_answers_original.txt' ), 'w') as f:
+with open( os.path.join( root_dir, 'preprocessed_data/vqa_answers.txt' ), 'w') as f:
     f.write( '\n'.join(all_valid_answers) )
 
 

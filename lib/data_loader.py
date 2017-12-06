@@ -162,7 +162,7 @@ class VqaDataset(Dataset):
             means, stdevs = pickle.load(open(saved_mean_stds_file, 'rb'))
             return [means, stdevs]
         else:
-
+            print 'precomputing data mean/stds for normalization'
             with open(question_file) as f:
                 questions_dict = json.load(f)['questions']
             
@@ -256,7 +256,7 @@ def get_dataset(image_set, use_mean_stds, saved_mean_stds_file = None):
     question_file = os.path.join( root_dir, 
                         'raw_data/Questions/v2_OpenEnded_mscoco_%s_questions.json' )
     module_layout_file = os.path.join( root_dir, 
-                        'layouts/module_layouts/questions_module_layouts_{}.txt'.format(set_name) )
+                        'preprocessed_data/layouts/module_layouts/questions_module_layouts_%s.txt' )
     image_feature_file = os.path.join( root_dir, 
                         'preprocessed_data/image_features/%s/conv/COCO_%s_%%012d.jpg.npz' )
 
