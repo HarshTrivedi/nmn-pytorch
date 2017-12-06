@@ -1,0 +1,56 @@
+========================
+
+raw_data/  (VQA)
+	Images/
+	Annotations/
+	Questions/
+
+preprocessing/:
+	build_answer_vocab.py
+	build_layouts.py
+	build_module_input_vocab.py
+	pick_subset.py
+	extract_image_vgg_features.py
+	lib/
+		parse_tree_to_primary_layout.py
+		primary_to_module_layout.py
+		VGG ... caffemodel
+		VGG ... .prototxt
+
+preprocessed_data
+	image_features/
+		mean-stdevs ...
+	layouts/
+	vqa_answers.txt
+	vqa_answers_original.txt
+	vocabulary_vqa_glove.npy
+	vocabulary_modules.txt
+
+lib/
+	load_vocab.py
+	data_loader.py
+
+saved_models/
+
+logs/
+	..
+	..
+
+cmp_nn_vqa_model.py
+train_test_cmp_nn_vqa.py
+
+baseline_lstm_model.py
+train_test_baseline_lstm.py
+
+baseline_lstm_img_model.py
+train_test_baseline_lstm_img.py
+
+Demo/
+	image.jpg
+	question.txt
+	predict.py
+
+ReadMe.md
+project_structure.txt
+
+========================

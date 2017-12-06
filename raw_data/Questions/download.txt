@@ -1,0 +1,19 @@
+
+
+Download from: http://www.visualqa.org/download.html
+
+Links: 
+1. http://visualqa.org/data/mscoco/vqa/v2_Questions_Train_mscoco.zip
+2. http://visualqa.org/data/mscoco/vqa/v2_Questions_Val_mscoco.zip
+3. http://visualqa.org/data/mscoco/vqa/v2_Questions_Test_mscoco.zip
+
+Unzip to have following files should be in this directory
+v2_OpenEnded_mscoco_train2014_questions.json     
+v2_OpenEnded_mscoco_val2014_questions.json
+v2_OpenEnded_mscoco_test2015_questions.json      
+
+If you are operating on -sub set, have the following jsons also.
+A script to build these from specific subtypes is there is preprocessing/pick_subset.py
+
+
+v2_OpenEnded_mscoco_val2014-sub_questions.json

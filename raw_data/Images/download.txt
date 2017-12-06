@@ -1,0 +1,19 @@
+
+Get Training/Testing/Validation Images from http://www.visualqa.org/download.html
+
+Links:
+	1. http://msvocds.blob.core.windows.net/coco2014/train2014.zip
+	2. http://msvocds.blob.core.windows.net/coco2014/val2014.zip
+	3. http://msvocds.blob.core.windows.net/coco2015/test2015.zip
+
+Extract jpg images in respective folders.
+For example *.jpg files for training set should be as:
+
+train2014/
+	COCO....jpg
+	COCO....jpg
+	..
+	..
+
+You can take subset of images in put in -sub directories for simple test.
+

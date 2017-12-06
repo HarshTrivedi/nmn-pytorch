@@ -1,0 +1,17 @@
+
+Download from: http://www.visualqa.org/download.html
+
+Links: 
+1. http://visualqa.org/data/mscoco/vqa/v2_Annotations_Train_mscoco.zip
+2. http://visualqa.org/data/mscoco/vqa/v2_Annotations_Val_mscoco.zip
+
+Unzip to have following files should be in this directory
+v2_mscoco_train2014_annotations.json 
+v2_mscoco_val2014_annotations.json
+
+If you are operating on -sub set, have the following jsons also.
+A script to build these from specific subtypes is there is preprocessing/pick_subset.py
+
+v2_mscoco_train2014-sub_annotations.json 
+v2_mscoco_val2014-sub_annotations.json
+
