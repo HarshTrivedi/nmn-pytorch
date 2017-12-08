@@ -14,7 +14,7 @@ import logging
 
 ######## Set up (Starts) #########
 
-model_name   = 'baseline_lstm'
+model_name   = 'cmp_nn_vqa'
 train_set = 'train2014-sub'
 val_set  = 'val2014-sub'
 
