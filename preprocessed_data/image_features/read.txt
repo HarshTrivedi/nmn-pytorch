@@ -1,0 +1,4 @@
+Have directories for each of dataset names:
+For example: train2014  train2014-sub  val2014  val2014-sub
+
+and put *.npz files for image features in them
