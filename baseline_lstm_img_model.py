@@ -11,7 +11,7 @@ else:
 
 class LSTMModel(torch.nn.Module):
 
-    def __init__(self, question_word_embeddings_np, embedding_dim, hidden_dim, vocab_size, D_ans_choices ):
+    def __init__(self, question_word_embeddings_np, embedding_dim, hidden_dim, vocab_size ):
         super(LSTMModel, self).__init__()
         self.hidden_dim = hidden_dim
         self.question_word_embeddings = torch.nn.Embedding(vocab_size, embedding_dim)
@@ -40,8 +40,8 @@ class VGABaseModel(torch.nn.Module):
         super(VGABaseModel, self ).__init__()
         self.squeeze_wordvec_to_map_d = torch.nn.Linear(D_hidden, D_map)
         self.squeeze_image_to_map_d   = torch.nn.Linear(D_img, D_map)
-        self.map_to_answer_choices    = torch.nn.Linear(D_map, D_ans_choices)    
-        self.lstmModel = LSTMModel(question_word_embeddings_np, D_txt, D_hidden, question_vocab_size, ans_choices_size )
+        self.map_to_answer_choices    = torch.nn.Linear(D_map, ans_choices_size)    
+        self.lstmModel = LSTMModel(question_word_embeddings_np, D_txt, D_hidden, question_vocab_size )
         
     def forward(self, image_feat, token_sequence_tensor ):
 
