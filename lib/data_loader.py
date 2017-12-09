@@ -258,7 +258,7 @@ def get_dataset(image_set, use_mean_stds, saved_mean_stds_file = None):
     module_layout_file = os.path.join( root_dir, 
                         'preprocessed_data/layouts/module_layouts/questions_module_layouts_%s.txt' )
     image_feature_file = os.path.join( root_dir, 
-                        'preprocessed_data/image_features/%s/conv/COCO_%s_%%012d.jpg.npz' )
+                        'preprocessed_data/image_features/%s/COCO_%s_%%012d.jpg.npz' )
 
     if use_mean_stds: # In case of Test/Val (stats would be given)
         means, stdevs = use_mean_stds

@@ -16,7 +16,7 @@ root_dir = os.path.join( os.path.dirname(os.path.realpath(__file__)),  '..')
 IMAGE_ROOT = os.path.join( root_dir, 
               'raw_data/Images/{}/'.format(image_set) )
 IMAGE_CONV_DEST = os.path.join( root_dir, 
-              'image_features/preprocessed_data/{}/conv'.format(image_set) )
+              'image_features/preprocessed_data/{}/'.format(image_set) )
 IMAGENET_MEAN_FILE = os.path.join(root_dir, 
               'preprocessing/ilsvrc_2012_mean.npy')
 VGG_MODEL = os.path.join( root_dir, 
