@@ -10,7 +10,7 @@ import ast
 
 class VqaDataset(Dataset):
 
-    def __init__(self, vocab_answer_file, vocab_module_file, vocab_question_file, wordvec_file, annotation_file, question_file, module_layout_file, image_feature_file, transform=None):
+    def __init__(self, set_name, vocab_answer_file, vocab_module_file, vocab_question_file, wordvec_file, annotation_file, question_file, module_layout_file, image_feature_file, transform=None):
 
 
         with open(question_file) as f:
@@ -26,6 +26,7 @@ class VqaDataset(Dataset):
         with open(wordvec_file) as f:
             question_embedding_matrix = np.load(f)
 
+        self.set_name = set_name
         self.questions_dict = questions_dict
         self.answer_dict = answer_dict
 
@@ -267,6 +268,7 @@ def get_dataset(image_set, use_mean_stds, saved_mean_stds_file = None):
                                                                     image_feature_file % (image_set, image_set),
                                                                     saved_mean_stds_file)
     vqa_dataset = VqaDataset( 
+                            image_set,
                             vocab_answer_file,
                             vocab_module_file,
                             vocab_question_file,
