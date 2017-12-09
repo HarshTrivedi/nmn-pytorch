@@ -103,7 +103,6 @@ def test_model(model, datasetloader, dataset):
     total = 0
     result_dict = {}
     for batch_index, batch_datums in enumerate(datasetloader):
-        optimizer.zero_grad()
 
         ### forward (compute predictions) ###
         # change this block Model Wise

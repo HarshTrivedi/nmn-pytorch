@@ -99,7 +99,6 @@ def test_model(model, datasetloader, dataset):
     total = 0
     result_dict = {}
     for batch_index, batch_datums in enumerate(datasetloader):
-        optimizer.zero_grad()
 
         ### forward (compute predictions) ###
         model.hidden = model.init_hidden()
