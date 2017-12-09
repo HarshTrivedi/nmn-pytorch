@@ -182,12 +182,12 @@ def visualize_model(model, datasetloader, dataset, num_questions=10, gui = False
         correctness = max([ int(answer_vector[prediction]) for prediction in top_predicted_indices])
         if bool(correctness):
             if not gui:
-                logging.info("Question:")
-                logging.info(question_text)
-                logging.info("Answer:")
-                logging.info('\n'.join(label_texts))
-                logging.info("correctness:")
-                logging.info(bool(correctness))
+                print("Question:")
+                print(question_text)
+                print("Answer:")
+                print('\n'.join(label_texts))
+                print("correctness:")
+                print(bool(correctness))
             else:                
                 plt.figure()
                 image_data = plt.imread( raw_image_file, format='jpg' )
