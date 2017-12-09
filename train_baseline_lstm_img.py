@@ -10,8 +10,7 @@ import os
 import time
 import logging
 
-
-
+root_dir = os.path.dirname(os.path.realpath(__file__))
 
 def train_model(model, datasetloader_dict, dataset_dict, loss_function, optimizer, num_epochs=50):
     since = time.time()
@@ -144,8 +143,10 @@ def test_model(model, datasetloader, dataset):
     return result_dict, accuracy
 
 
-def visualize_model(model, datasetloader, dataset, num_questions=10):
-    import matplotlib.pyplot as plt
+def visualize_model(model, datasetloader, dataset, num_questions=10, gui = False):
+
+    if gui:
+        import matplotlib.pyplot as plt
     images_so_far = 0
     for batch_index, batch_datums in enumerate(datasetloader):
 
@@ -187,16 +188,26 @@ def visualize_model(model, datasetloader, dataset, num_questions=10):
         raw_image_file = os.path.join(root_dir, 
                          'raw_data/Images/%s/COCO_%s_%012d.jpg' % (dataset.set_name, dataset.set_name, int(image_id) )  )
 
-        plt.figure()
-        image_data = plt.imread( image_path, format='jpg' )
-        plt.title(question_text)
-        plt.xlabel('\n'.join(label_texts))
-        plt.imshow(image_data)
-        plt.show()
+        correctness = max([ int(answer_vector[prediction]) for prediction in top_predicted_indices])
+        if bool(correctness):
+            if not gui:
+                logging.info("Question:")
+                logging.info(question_text)
+                logging.info("Answer:")
+                logging.info('\n'.join(label_texts))
+                logging.info("correctness:")
+                logging.info(bool(correctness))
+            else:                
+                plt.figure()
+                image_data = plt.imread( raw_image_file, format='jpg' )
+                plt.title(question_text)
+                plt.xlabel('\n'.join(label_texts))
+                plt.imshow(image_data)
+                # plt.show()
 
-        images_so_far += 1
-        if images_so_far > num_questions:
-            break
+            images_so_far += 1
+            if images_so_far > num_questions:
+                break
 
 ###################################################################################
 
@@ -209,8 +220,6 @@ if __name__ == "__main__":
     train_set = 'train2014-sub'
     val_set  = 'val2014-sub'
 
-    root_dir = os.path.dirname(os.path.realpath(__file__))
-    log_dir = os.path.join(root_dir, 'logs')
     logging.basicConfig(    filename= os.path.join(log_dir, model_name + '.log'), 
                             level=logging.INFO, 
                             format="%(asctime)s:%(message)s", 
