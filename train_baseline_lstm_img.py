@@ -219,6 +219,7 @@ if __name__ == "__main__":
     model_name   = 'baseline_lstm_img'
     train_set = 'train2014-sub'
     val_set  = 'val2014-sub'
+    test_set  = 'test2014-sub'
 
     logging.basicConfig(    filename= os.path.join(log_dir, model_name + '.log'), 
                             level=logging.INFO, 
@@ -228,6 +229,7 @@ if __name__ == "__main__":
     results_dir = os.path.join( root_dir, 'results' )
     train_results_file = os.path.join( results_dir, '_'.join([ model_name, train_set, train_set ]) + '.json' )
     val_results_file  = os.path.join( results_dir, '_'.join([ model_name, train_set, val_set ]) + '.json' )
+    test_results_file = os.path.join( results_dir, '_'.join([ model_name, train_set, test_set ]) + '.json' )
 
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
@@ -263,7 +265,7 @@ if __name__ == "__main__":
     val_dataset, _                  = get_dataset(val_set, train_mean_stds)
     logging.info("Datasets Loaded")
 
-    dataset = { 'train': train_dataset, 'val'  : val_dataset }
+    dataset = { 'train': train_dataset, 'val'  : val_dataset, 'test': test_dataset }
 
     train_annotation_dict = json.load(open(annotation_file % train_set))
     val_annotation_dict   = json.load(open(annotation_file % val_set))
@@ -296,7 +298,8 @@ if __name__ == "__main__":
 
     train_dataloader = DataLoader(dataset['train'], batch_size=1, shuffle=True, num_workers=4)
     val_dataloader   = DataLoader(dataset['val'] ,  batch_size=1, shuffle=True, num_workers=4)
-    dataloader = { 'train': train_dataloader, 'val' : val_dataloader }
+    test_dataloader  = DataLoader(dataset['test'] ,  batch_size=1, shuffle=True, num_workers=4)
+    dataloader = { 'train': train_dataloader, 'val' : val_dataloader, 'test': test_dataloader }
     logging.info('Dataloader Loaded')
 
     trained_vqa_model = train_model(model, dataloader, dataset, loss_function, optimizer, num_epochs=50)
@@ -308,6 +311,12 @@ if __name__ == "__main__":
 
     train_result_dict, train_accuracy = test_model(trained_vqa_model, train_dataloader, train_dataset)
     val_result_dict  , val_accuracy   = test_model(trained_vqa_model, val_dataloader , val_dataset)
+    test_result_dict  , test_accuracy = test_model(trained_vqa_model, test_dataloader , test_dataset)
+
+    logging.info('Final Accuracies:')
+    logging.info("Train: {}".format(train_accuracy))
+    logging.info("Val  : {}".format(val_accuracy))
+    logging.info("Test : {}".format(test_accuracy))
 
     with open(train_results_file, 'w') as f:
         json.dump(train_result_dict, f)
@@ -315,10 +324,12 @@ if __name__ == "__main__":
     with open(val_results_file, 'w') as f:
         json.dump(val_result_dict, f)
 
+    with open(test_results_file, 'w') as f:
+        json.dump(test_result_dict, f)
+
     logging.info('saved result jsons')
 
-    # MatplotLib would pop to show
-    visualize_model(trained_vqa_model, val_dataloader, val_dataset, num_questions=10)
+    # visualize_model(trained_vqa_model, val_dataloader, val_dataset, num_questions=10, False)
 
 
 
