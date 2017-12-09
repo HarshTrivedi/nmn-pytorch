@@ -1,5 +1,5 @@
 *.pyc
-./preprocessed_data
-./raw_data
-./results
-./saved_models
+preprocessed_data/*
+raw_data/*
+results/*
+saved_models/*
