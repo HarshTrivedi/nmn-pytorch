@@ -61,7 +61,7 @@ else:
 
 
 
-def train_model(model, datasetloader_dict, dataset_dict, loss_function, optimizer, num_epochs=50):
+def train_model(model, datasetloader_dict, dataset, loss_function, optimizer, num_epochs=50):
     since = time.time()
 
     best_model_wts = model.state_dict()
@@ -100,7 +100,7 @@ def train_model(model, datasetloader_dict, dataset_dict, loss_function, optimize
                     actual_label_tensor = Variable(batch_datums['answer_index'], requires_grad = False).view(-1)
                     token_sequence_tensor = Variable(batch_datums['question_token_ids'], requires_grad = False)            
                     answer_vector_tensor  = Variable(batch_datums['answer_vector_tensor'], requires_grad = False)
-                prediction_scores_tensor = model.forward( layout, image_feat, token_sequence_tensor, dataset.module_vocab_dict )
+                prediction_scores_tensor = model.forward( layout, image_feat, token_sequence_tensor, dataset['train'].module_vocab_dict )
 
                 loss = loss_function(prediction_scores_tensor, actual_label_tensor)
                 loss_value = loss.data[0]
@@ -270,10 +270,11 @@ with open(vocab_answer_file, 'r') as f:
 
 question_word_embeddings_np = dataset['train'].question_embedding_matrix
 question_vocab_size         = dataset['train'].question_vocab_dict.num_vocab
+module_vocab_size           = dataset['train'].module_vocab_dict.num_vocab
 
 ######
 # change this block Model Wise
-vqa_model = DynamicModularNet(  D_img, 
+model     = DynamicModularNet(  D_img, 
                                 D_txt, 
                                 D_map, 
                                 D_hidden, 
