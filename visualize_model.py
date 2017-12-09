@@ -9,6 +9,7 @@ model_name   = 'cmp_nn_vqa'
 train_set    = 'train2014-sub'
 test_set     = 'test2014-sub'
 num_questions = 10
+print torch.cuda.is_available()
 
 root_dir = os.path.dirname(os.path.realpath(__file__))
 root_dir = os.path.dirname('.')
