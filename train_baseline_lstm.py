@@ -189,11 +189,11 @@ def test_model(model, datasetloader, dataset):
 
 
 def visualize_model(model, datasetloader, dataset, num_questions=10):
-
+    import matplotlib.pyplot as plt
     images_so_far = 0
     for batch_index, batch_datums in enumerate(datasetloader):
 
-        ### forward (compute loss) ###
+        ### forward ###
         model.hidden = model.init_hidden()
         if use_gpu:
             actual_label_tensor = Variable(batch_datums['answer_index'].cuda(), requires_grad = False).view(-1)
