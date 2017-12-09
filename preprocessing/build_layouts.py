@@ -4,7 +4,7 @@ from lib.parse_tree_to_primary_layout import *
 from lib.primary_to_module_layout import *
 
 # set_names = ['train2014', 'test2015', 'val2014', 'test-dev2015']
-set_names = ['train2014-sub', 'val2014-sub']
+set_names = ['train2014-sub', 'val2014-sub', 'test2014-sub']
 
 root_dir = os.path.join( os.path.dirname(os.path.realpath(__file__)),  '..')
 layout_data_dir = os.path.join(root_dir, 'preprocessed_data/layouts')

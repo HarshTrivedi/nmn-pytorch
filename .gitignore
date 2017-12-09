@@ -3,3 +3,5 @@ preprocessed_data/*
 raw_data/*
 results/*
 saved_models/*
+logs/*
+.ipynb_checkpoints/*
