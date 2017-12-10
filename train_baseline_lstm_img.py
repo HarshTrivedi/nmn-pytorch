@@ -221,6 +221,7 @@ if __name__ == "__main__":
     val_set  = 'val2014-sub'
     test_set  = 'test2014-sub'
 
+    log_dir = os.path.join(root_dir, 'logs')
     logging.basicConfig(    filename= os.path.join(log_dir, model_name + '.log'), 
                             level=logging.INFO, 
                             format="%(asctime)s:%(message)s", 
@@ -263,6 +264,7 @@ if __name__ == "__main__":
 
     train_dataset, train_mean_stds  = get_dataset(train_set, None, saved_mean_stds_file )
     val_dataset, _                  = get_dataset(val_set, train_mean_stds)
+    test_dataset, _                  = get_dataset(test_set, train_mean_stds)
     logging.info("Datasets Loaded")
 
     dataset = { 'train': train_dataset, 'val'  : val_dataset, 'test': test_dataset }
