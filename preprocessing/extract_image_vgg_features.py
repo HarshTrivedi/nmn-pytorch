@@ -1,3 +1,5 @@
+# mostly taken from: https://gist.github.com/jacobandreas/897987ac03f8d4b9ea4b9e44affa00e7
+
 import caffe
 from collections import defaultdict
 import numpy as np

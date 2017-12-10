@@ -1,5 +1,5 @@
 #!/usr/bin/env python2
-
+# taken from: https://github.com/jacobandreas/nmn2/blob/master/extra/vqa/parse.py
 from collections import namedtuple
 import itertools
 import re
