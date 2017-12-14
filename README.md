@@ -13,6 +13,8 @@ Please cite the above paper in case you use this code in your work. The instruct
 Demo:
 -----
 
+More results can be seen with [visualize_model.ipynb]( https://github.com/HarshTrivedi/nmn-pytorch/blob/master/visualize_model.ipynb ).
+
 ![Demo1](README-Images/demo1.png?raw=true)  | ![Demo2](README-Images/demo2.png?raw=true)
 :------------------------------------------:|:-----------------------------------------:
 ![Demo3](README-Images/demo3.png?raw=true)  | ![Demo4](README-Images/demo3.png?raw=true)
