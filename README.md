@@ -17,7 +17,7 @@ More results can be seen with [visualize_model.ipynb]( https://github.com/HarshT
 
 ![Demo1](README-Images/demo1.png?raw=true)  | ![Demo2](README-Images/demo2.png?raw=true)
 :------------------------------------------:|:-----------------------------------------:
-![Demo3](README-Images/demo3.png?raw=true)  | ![Demo4](README-Images/demo3.png?raw=true)
+![Demo3](README-Images/demo3.png?raw=true)  | ![Demo4](README-Images/demo4.png?raw=true)
 
 
 
