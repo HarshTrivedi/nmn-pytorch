@@ -4,7 +4,7 @@ Pipeline:
 
 A] Preprocess
 
-1. python pick_subset.py
+1. python pick_subset.py [Optional: python split_val.py]
 2. python build_answer_vocab.py
 3. python build_layouts.py
 4. python build_module_input_vocab.py
