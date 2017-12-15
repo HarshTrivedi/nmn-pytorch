@@ -13,7 +13,7 @@ Please cite the above paper in case you use this code in your work. The instruct
 Demo:
 -----
 
-More results can be seen with [visualize_model.ipynb]( https://github.com/HarshTrivedi/nmn-pytorch/blob/master/visualize_model.ipynb ).
+More results can be seen with [visualize_model.ipynb]( https://git reset --hardgithub.com/HarshTrivedi/nmn-pytorch/blob/master/visualize_model.ipynb ).
 
 
 
@@ -21,6 +21,12 @@ More results can be seen with [visualize_model.ipynb]( https://github.com/HarshT
 :------------------------------------------:|:-----------------------------------------:
 <img src="https://raw.githubusercontent.com/HarshTrivedi/nmn-pytorch/master/README-Images/demo3.png" width="500">  | <img src="https://raw.githubusercontent.com/HarshTrivedi/nmn-pytorch/master/README-Images/demo4.png" width="500">
 
+Dependencies:
+--------------
+
+Following are the main python dependencies of the project: ``` torch ```, ```torchvision``` ``` caffe ```, ```matplotlib```, ```numpy```, ```matplotlib``` and ```sexpdata```.
+
+You also need to have [stanford parser](https://nlp.stanford.edu/software/lex-parser.shtml) available. Once dowloaded, make sure to set ```STANFORDPARSER``` in ```.bashrc``` so that directory ```$STANFORDPARSER/libexec/``` has ```stanford-parser.jar``` 
 
 
 
@@ -63,12 +69,16 @@ The accuracy/loss logs will be piped to ```logs/cmp_nn_vqa.log```.
 Once training is done, the selected model will be automatically saved at ```saved_models/cmp_nn_vqa.pt```
 
 
-Visualize Results:
+Visualize Model:
 ------------------
 
 The results can be visualized by running ```visualize_model.ipynb``` and selecting model name which was saved.
 
 
+Evaluate Model:
+------------------
+
+The model can be evaluated by running ```python evaluation/evaluate.py```. A short summary report should be seen on stdout.
 
 
 
