@@ -7,23 +7,22 @@ import sys
 
 Node = namedtuple("Node", ["word", "tag", "parent", "rel", "path"])
 
-BE_FORMS="is|are|was|were|has|have|had|does|do|did|be"
+BE_FORMS = "is|are|was|were|has|have|had|does|do|did|be"
 
 WH_RES = [
-    r"^what (\w+) (is|are)",
-    r"^what (is|are) the (\w+) of",
-    r"^what (\w+) of",
+    r"^what (\w+) (is|are)", r"^what (is|are) the (\w+) of", r"^what (\w+) of",
     r"^(what|which|where)",
-    r"(%s)" % BE_FORMS,
-    r"^(how many)",
-    r"^(can|could)"
+    r"(%s)" % BE_FORMS, r"^(how many)", r"^(can|could)"
 ]
 
 EDGE_RE = re.compile(r"([^()]+)\((.+)-(\d+), (.+)-(\d+)\)")
 CONTENT_RE = re.compile(r"NN*|VB*|JJ*")
 #CONTENT_RE = re.compile(r"NN|VB|JJ")
 
-REL_PRECEDENCE = ["root", "nsubj", "dobj", "nsubjpass", "dep", "xcomp", 'nsubj:xsubj']
+REL_PRECEDENCE = [
+    "root", "nsubj", "dobj", "nsubjpass", "dep", "xcomp", 'nsubj:xsubj'
+]
+
 
 def precedence(rel):
     if "nmod:" in rel:
@@ -34,7 +33,9 @@ def precedence(rel):
         return len(REL_PRECEDENCE) + 1
     return REL_PRECEDENCE.index(rel)
 
+
 class LfParser(object):
+
     def __init__(self, use_relations, max_leaves, max_conjuncts):
         self.use_relations = use_relations
         self.max_leaves = max_leaves
@@ -132,7 +133,7 @@ class LfParser(object):
 
             else:
                 query_lines.append(sline)
-                
+
 
 if __name__ == "__main__":
 
@@ -143,8 +144,8 @@ if __name__ == "__main__":
     parser = LfParser(use_relations=True, max_conjuncts=2, max_leaves=4)
 
     output_lines = []
-    for parses in parser.parse_all( open(sys.argv[1]) ):
+    for parses in parser.parse_all(open(sys.argv[1])):
         output_lines.append(";".join(parses))
 
     with open(sys.argv[2], "w") as f:
-        f.write( "\n".join(output_lines) )
+        f.write("\n".join(output_lines))
