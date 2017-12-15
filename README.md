@@ -13,7 +13,7 @@ Please cite the above paper in case you use this code in your work. The instruct
 Demo:
 -----
 
-More results can be seen with [visualize_model.ipynb]( https://git reset --hardgithub.com/HarshTrivedi/nmn-pytorch/blob/master/visualize_model.ipynb ).
+More results can be seen with [visualize_model.ipynb]( https://github.com/HarshTrivedi/nmn-pytorch/blob/master/visualize_model.ipynb ).
 
 
 
