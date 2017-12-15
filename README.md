@@ -50,15 +50,16 @@ Each download.txt has specific instruction with ```wget``` command that you need
 Proprocessing:
 -------------
 
-```preprocessing``` directory contains the scripts required to preprocess the ```raw_data```. This preprocessed data is stored in ``` preprocessed_data```. You need to run the following scripts in order:
+```preprocessing``` directory contains the scripts required to preprocess the ```raw_data```. This preprocessed data is stored in ``` preprocessed_data```. All scripts in this repository operate on some `set`. When you download the data, the default sets (directory names) are ```train2014``` and ```val2014```. You can build a question type specific subsets like ```train2014-sub```, ```val2014-sub``` by using ``` pick_subset.py```. You need to be sure that training / testing / validation set names are consisten in the following scripts (general set at top of code). By default, everything would work on default sets, but if you need specific set, you need to follow the comments below. You need to run the following scripts in order:
 
 ```
-1. python preprocessing/pick_subset.py [ Optional: If you want to operate on spcific question-type ]
-2. python preprocessing/build_answer_vocab.py
-3. python preprocessing/build_layouts.py 
-4. python preprocessing/build_module_input_vocab.py
-5. python preprocessing/extract_image_vgg_features.py
+1. python preprocessing/pick_subset.py 	[# Optional: If you want to operate on spcific question-type ]
+2. python preprocessing/build_answer_vocab.py         [# Run on your Training Set only]
+3. python preprocessing/build_layouts.py              [# Run on your Training Set only]
+4. python preprocessing/build_module_input_vocab.py   [# Run on your Training Set only]
+5. python preprocessing/extract_image_vgg_features.py [# Run on all Train/ Test / Val Sets]
 ```
+ToDo:  Add ```setting.py``` to make sure set-names can be globally configured for experiment.
 
 
 Run Experiments:
