@@ -1,0 +1,4 @@
+evaluation/lib/vqa.py 			[from VQA Task Organizers for standardized evaluation]
+evaluation/lib/vqaEval.py 		[from VQA Task Organizers for standardized evaluation]
+preprocessing/extract_image_vgg_features.py [Preprocess with VGGNet: mostly from https://gist.github.com/jacobandreas/897987ac03f8d4b9ea4b9e44affa00e7]
+preprocessing/lib/parse_tree_to_primary_layout.py [mostly taken from parse.py provided by authors of NMN paper]
