@@ -242,9 +242,8 @@ def visualize_model(model, datasetloader, dataset, num_questions=10, gui=False, 
             int(answer_vector[prediction])
             for prediction in top_predicted_indices
         ])
-        correctness = bool(correctness)
-        as_required = not( req_correct^correctness )
-        if as_required or (as_required is None):
+
+        if (req_correct is None) or not( bool(req_correct)^bool(correctness) ):
             if not gui:
                 print("Question:")
                 print(question_text)
