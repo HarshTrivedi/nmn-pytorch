@@ -1,7 +1,6 @@
 import sys
 from lib.vqa import VQA
 from lib.vqaEval import VQAEval
-import matplotlib.pyplot as plt
 import os
 import json
 
@@ -19,12 +18,12 @@ question_file = os.path.join(
     root_dir,
     'raw_data/Questions/v2_OpenEnded_mscoco_%s_questions.json' % test_set_name)
 
-resule_file = os.path.join(root_dir, 'results/%s_%s_%s.json' %
+result_file = os.path.join(root_dir, 'results/%s_%s_%s.json' %
                            (model_name, train_set_name, test_set_name))
 
 vqa = VQA(annotation_file, question_file)
-resule_file = vqa.loadRes(resFile, question_file)
-vqaEval = VQAEval(vqa, resule_file)
+result = vqa.loadRes(result_file, question_file)
+vqaEval = VQAEval(vqa, result)
 vqaEval.evaluate()
 
 print "---------------------------------"
