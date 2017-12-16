@@ -50,7 +50,7 @@ Each download.txt has specific instruction with ```wget``` command that you need
 Proprocessing:
 -------------
 
-```preprocessing``` directory contains the scripts required to preprocess the ```raw_data```. This preprocessed data is stored in ``` preprocessed_data```. All scripts in this repository operate on some `set`. When you download the data, the default sets (directory names) are ```train2014``` and ```val2014```. You can build a question type specific subsets like ```train2014-sub```, ```val2014-sub``` by using ``` pick_subset.py```. You need to be sure that training / testing / validation set names are consisten in the following scripts (general set at top of code). By default, everything would work on default sets, but if you need specific set, you need to follow the comments below. You need to run the following scripts in order:
+```preprocessing``` directory contains the scripts required to preprocess the ```raw_data```. This preprocessed data is stored in ``` preprocessed_data```. All scripts in this repository operate on some `set`. When you download the data, the default sets (directory names) are ```train2014``` and ```val2014```. You can build a question type specific subsets like ```train2014-sub```, ```val2014-sub``` by using ``` pick_subset.py```. You need to be sure that training / testing / validation set names are consistent in the following scripts (generally set at top of code). By default, everything would work on default sets, but if you need specific set, you need to follow the comments below. You need to run the following scripts in order:
 
 ```
 1. python preprocessing/pick_subset.py 	[# Optional: If you want to operate on spcific question-type ]
@@ -81,6 +81,18 @@ Evaluate Model:
 
 The model can be evaluated by running ```python evaluation/evaluate.py```. A short summary report should be seen on stdout.
 
+To Do:
+------------------
+1. Add more documentation
+2. Some more code cleaning
+3. Document results of this implementation on VQA datset
+4. Short blog on implementing NMN in PyTorch
+
+
+Any Issues?
+------------------
+
+Please shoot me an email at [hjtrivedi@cs.stonybrook.edu](mailto:hjtrivedi@cs.stonybrook.edu). I will try to fix it as soon as possible.
 
 
 
